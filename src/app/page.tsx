@@ -27,7 +27,7 @@ export default function Home() {
             q: keyword,
             prettyPrint: true,
             key:
-              process.env.YOUTUBE_API_KEY || ""
+              process.env.YOUTUBE_API_KEY || "AIzaSyD_BL2XY9gibP2OFZpeIAUaupPow-nqmFg"
           },
         }
       );
