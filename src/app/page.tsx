@@ -9,7 +9,7 @@ export default function Home() {
   const [keyword, setKeyword] = useState("");
   const [apiResponse, setApiResponse] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const loadingStates  = [
+  const loadingStates = [
     { text: "Loading..." }, // Generic loading state
     { text: "Fetching data..." }, // More specific loading state
     { text: "Data fetched successfully" }, // Success state
@@ -27,14 +27,13 @@ export default function Home() {
             q: keyword,
             prettyPrint: true,
             key:
-              process.env.YOUTUBE_API_KEY || "AIzaSyD_BL2XY9gibP2OFZpeIAUaupPow-nqmFg"
+              process.env.YOUTUBE_API_KEY ||
+              "AIzaSyD_BL2XY9gibP2OFZpeIAUaupPow-nqmFg",
           },
         }
       );
-      console.log(response.data);
 
       setApiResponse(response.data);
-      console.log(apiResponse);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -81,10 +80,166 @@ export default function Home() {
         )}
         <div>
           {apiResponse && (
-            <KeywordResearch apiResponse={apiResponse} keyword={keyword} />
+            <KeywordResearch
+              apiResponse={apiResponse}
+              keyword={keyword}
+              targetLanguage="en"
+            />
           )}
         </div>
       </div>
     </main>
   );
 }
+
+const commonWords: Set<string> = new Set([
+  "the",
+  "be",
+  "to",
+  "of",
+  "and",
+  "a",
+  "in",
+  "that",
+  "have",
+  "I",
+  "it",
+  "for",
+  "not",
+  "on",
+  "with",
+  "he",
+  "as",
+  "you",
+  "do",
+  "at",
+  "this",
+  "but",
+  "his",
+  "by",
+  "from",
+  "they",
+  "we",
+  "say",
+  "her",
+  "she",
+  "or",
+  "an",
+  "will",
+  "my",
+  "one",
+  "all",
+  "would",
+  "there",
+  "their",
+  "what",
+  "so",
+  "up",
+  "out",
+  "if",
+  "about",
+  "who",
+  "get",
+  "which",
+  "go",
+  "me",
+  "when",
+  "make",
+  "can",
+  "like",
+  "time",
+  "no",
+  "just",
+  "him",
+  "know",
+  "take",
+  "people",
+  "into",
+  "year",
+  "your",
+  "good",
+  "some",
+  "could",
+  "them",
+  "see",
+  "other",
+  "than",
+  "then",
+  "now",
+  "look",
+  "only",
+  "come",
+  "its",
+  "over",
+  "think",
+  "also",
+  "back",
+  "after",
+  "use",
+  "two",
+  "how",
+  "our",
+  "work",
+  "first",
+  "well",
+  "way",
+  "amp",
+  "https",
+  "com",
+  "www",
+  "http",
+  "html",
+  "youtube",
+  "video",
+  "new",
+  "like",
+  "one",
+  "time",
+  "vs",
+  "even",
+  "new",
+  "want",
+  "because",
+  "any",
+  "these",
+  "give",
+  "day",
+  "most",
+  "us",
+  "kar",
+  "ke",
+  "kya",
+  "hain",
+  "doston",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "30",
+  "31",
+]);
