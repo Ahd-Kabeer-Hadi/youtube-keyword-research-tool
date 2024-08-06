@@ -40,11 +40,7 @@ const KeywordResearch: React.FC<KeywordResearchProps> = ({
     );
     return regex.test(str2);
   };
-  // const fuzzyMatch = (str1: string, str2: string) => {
-  //   const pattern = str1.split("").map(char => `(?=.*${char})`).join("");
-  //   const regex = new RegExp(`${pattern}`, "i");
-  //   return regex.test(str2);
-  // };
+ 
 
   useEffect(() => {
     const fetchVideoDetails = async (videoId: string) => {
