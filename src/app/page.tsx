@@ -27,8 +27,7 @@ export default function Home() {
             q: keyword,
             prettyPrint: true,
             key:
-              process.env.YOUTUBE_API_KEY ||
-              "AIzaSyD_BL2XY9gibP2OFZpeIAUaupPow-nqmFg",
+              process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
           },
         }
       );
@@ -91,6 +90,24 @@ export default function Home() {
     </main>
   );
 }
+
+
+// return (
+//   <Card className="mt-8 w-full max-w-2xl rounded-lg bg-gradient-to-b from-neutral-950-100 to-stone-950">
+//     <CardHeader>
+//       Top SEO Keywords for: {keyword} (Language: {targetLanguage})
+//     </CardHeader>
+//     <CardContent className="flex flex-wrap justify-center">
+//       {keywords
+//         .sort((a, b) => b.score - a.score)
+//         .map((keywordData, index) => (
+//           <Button key={index} variant="outline" className="m-1">
+//             {keywordData.keyword}
+//           </Button>
+//         ))}
+//     </CardContent>
+//   </Card>
+// );
 
 const commonWords: Set<string> = new Set([
   "the",
